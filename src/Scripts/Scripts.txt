@@ -1,0 +1,57 @@
+CREATE DATABASE proyecto_reecursos;
+CREATE TABLE `sistema_reecursos`.`Organizciones` (
+  `codOrganizacion` VARCHAR(12) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(45) NOT NULL,
+  `telefono` INT(8) NOT NULL,
+  `correoElectronico` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`codOrganizacion`));
+
+CREATE TABLE `sistema_reecursos`.`usuarios` (
+  `codigo` VARCHAR(12) NOT NULL,
+  `codOrganizacion` VARCHAR(12) NOT NULL,
+  `tipo` CHAR(1) NOT NULL,
+  `nombreUsuairo` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `correoElectronico` VARCHAR(45) NOT NULL,
+  `telefono` INT(8) NOT NULL,
+  `direccion` VARCHAR(45) NULL,
+  PRIMARY KEY (`codigo`));
+
+CREATE TABLE `sistema_reecursos`.`recursos` (
+  `codigo` VARCHAR(12) NOT NULL,
+  `codOrganizacion` VARCHAR(12) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `requiereAprobacion` CHAR(1) NOT NULL,
+  `usuarioAprobacion` VARCHAR(12),
+  `requiereConfirmacion` CHAR(2) NOT NULL,
+  `usuarioRecepcion` VARCHAR(12),
+  `UsuarioEntrega` VARCHAR(12),
+  `tiempoMaximoUso` INT NOT NULL,
+  `costo` FLOAT NOT NULL,
+  PRIMARY KEY (`codigo`),
+  INDEX `fk_codOrg_idx` (`codOrganizacion` ASC) VISIBLE,
+  INDEX `fk_UsuarioA_idx` (`usuarioAprobacion` ASC) VISIBLE,
+  INDEX `fk_usuarioR_idx` (`usuarioRecepcion` ASC) VISIBLE,
+  INDEX `fk_usuarioE_idx` (`UsuarioEntrega` ASC) VISIBLE,
+  CONSTRAINT `fk_codOrg`
+    FOREIGN KEY (`codOrganizacion`)
+    REFERENCES `sistema_reecursos`.`organizaciones` (`codOrganizacion`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_UsuarioA`
+    FOREIGN KEY (`usuarioAprobacion`)
+    REFERENCES `sistema_reecursos`.`usuarios` (`codigo`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_usuarioR`
+    FOREIGN KEY (`usuarioRecepcion`)
+    REFERENCES `sistema_reecursos`.`usuarios` (`codigo`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_usuarioE`
+    FOREIGN KEY (`UsuarioEntrega`)
+    REFERENCES `sistema_reecursos`.`usuarios` (`codigo`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

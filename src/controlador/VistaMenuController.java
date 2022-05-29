@@ -281,6 +281,18 @@ public class VistaMenuController implements Initializable {
     private Pane pagiinaPrincipal;
     @FXML
     private ImageView imagedescarga;
+    @FXML
+    private Pane generarReportes;
+    @FXML
+    private Button bttReporteusuario;
+    @FXML
+    private Button bttReporterec;
+    @FXML
+    private ImageView imageReporteU;
+    @FXML
+    private ImageView imageReporterec;
+    @FXML
+    private Label lblpaginaReportes;
  
     /**
      * Initializes the controller class.
@@ -341,6 +353,13 @@ public class VistaMenuController implements Initializable {
           //setetamos las imagenes para que se muestren en nuestro programa
        Image crearUsuario = new Image ("iconos/iconUsuarios.png");
        iconCrearUsuario.setImage(crearUsuario);
+       
+       
+       Image iconreporteU = new Image ("iconos/procesamiento.png");
+       imageReporteU.setImage(iconreporteU);
+       
+        Image iconreporterec = new Image ("iconos/informe.png");
+       imageReporterec.setImage(iconreporterec);
        
        Image crear = new Image ("iconos/Crear2.png");
        imageCrear.setImage(crear);
@@ -418,6 +437,8 @@ public class VistaMenuController implements Initializable {
        labelGestionarRec.setVisible(false);
          PaginaPrincipal.setVisible(false);
            pagiinaPrincipal.setVisible(false);
+            generarReportes.setVisible(false);
+         lblpaginaReportes.setVisible(false);
          
     }
     @FXML
@@ -430,9 +451,11 @@ public class VistaMenuController implements Initializable {
       labelGestionarUs.setVisible(false);
         PaginaPrincipal.setVisible(false);
           pagiinaPrincipal.setVisible(false);
+           generarReportes.setVisible(false);
+         lblpaginaReportes.setVisible(false);
     }
     @FXML
-    private void gestionarPaginaprincipal(MouseEvent event) {
+    private void gestionarPaginaprincipal(MouseEvent event) {          //metodos utilizados para el cambio de vistas
         pagiinaPrincipal.setVisible(true);
         PaginaPrincipal.setVisible(true);
          GestionarOrg.setVisible(false);
@@ -441,8 +464,24 @@ public class VistaMenuController implements Initializable {
        labelGestionarRec.setVisible(false);
        gestionarRecurso.setVisible(false);
       labelGestionarRec.setVisible(false);
+       generarReportes.setVisible(false);
+         lblpaginaReportes.setVisible(false);
        
        
+    }
+      
+    @FXML
+    private void menuReportes(MouseEvent event) {
+         generarReportes.setVisible(true);
+         lblpaginaReportes.setVisible(true);
+        GestionarOrg.setVisible(false);
+       labelGestionar.setVisible(false);
+       gestionarRecurso.setVisible(false);
+       labelGestionarRec.setVisible(false);
+       gestionarRecurso.setVisible(false);
+      labelGestionarRec.setVisible(false);
+        PaginaPrincipal.setVisible(false);
+          pagiinaPrincipal.setVisible(false); 
     }
 
     @FXML
@@ -1331,10 +1370,7 @@ public class VistaMenuController implements Initializable {
       
             
       
-      
-    @FXML
-    private void menuReportes(MouseEvent event) {
-    }
+    
 
     @FXML
     private void requiereApro(MouseEvent event) {
@@ -1360,6 +1396,21 @@ public class VistaMenuController implements Initializable {
               lablelCodE.setVisible(false);
            lablelCodR.setVisible(false);
       }
+    }
+
+    @FXML
+    private void reportarUsuario(ActionEvent event) {
+        
+        
+        
+    }
+
+    @FXML
+    private void reporteRec(ActionEvent event) {
+        
+        
+        
+        
     }
 
    

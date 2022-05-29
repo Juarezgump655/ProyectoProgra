@@ -40,7 +40,7 @@
                </font>
             </Label>
             <Line endX="132.0" layoutX="132.0" layoutY="173.0" startX="-100.0" stroke="#fcfcfc" strokeWidth="3.0" />
-            <Pane fx:id="bttCrearORg" layoutX="3.0" layoutY="276.0" onMouseClicked="#GestionarOrg" onMouseEntered="#cambiarColorOrg" onMouseExited="#cambiarColorOrgs" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
+            <Pane fx:id="bttCrearORg" layoutX="-3.0" layoutY="276.0" onMouseClicked="#GestionarOrg" onMouseEntered="#cambiarColorOrg" onMouseExited="#cambiarColorOrgs" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
                <children>
                   <Label layoutX="13.0" layoutY="14.0" prefHeight="41.0" prefWidth="258.0" text="GESTIONAR ORGANIZACIONES" textFill="WHITE">
                      <font>
@@ -52,7 +52,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="bttGestionarUsuario" layoutX="3.0" layoutY="345.0" onMouseClicked="#GesrionarUsuario" onMouseEntered="#CambiarColorUsuario" onMouseExited="#CambiarColorUsuarioS" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
+            <Pane fx:id="bttGestionarUsuario" layoutX="-3.0" layoutY="345.0" onMouseClicked="#GesrionarUsuario" onMouseEntered="#CambiarColorUsuario" onMouseExited="#CambiarColorUsuarioS" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
                <children>
                   <Label layoutX="47.0" layoutY="14.0" prefHeight="41.0" prefWidth="190.0" text="GESTIONAR USUARIOS" textFill="WHITE">
                      <font>
@@ -64,7 +64,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="bttGesionarRecursos" layoutX="3.0" layoutY="414.0" onMouseClicked="#GestionarRecursos" onMouseEntered="#cambiarRecentrar" onMouseExited="#cambiarRecsalir" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
+            <Pane fx:id="bttGesionarRecursos" layoutX="-3.0" layoutY="414.0" onMouseClicked="#GestionarRecursos" onMouseEntered="#cambiarRecentrar" onMouseExited="#cambiarRecsalir" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
                <children>
                   <Label layoutX="43.0" layoutY="14.0" prefHeight="41.0" prefWidth="197.0" text="GESTIONAR RECURSOS" textFill="WHITE">
                      <font>
@@ -116,7 +116,7 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="bttEntregar" layoutX="3.0" layoutY="717.0" onMouseClicked="#menuEntregar" onMouseEntered="#colorCambiar" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
+            <Pane fx:id="bttEntregar" layoutX="-3.0" layoutY="717.0" onMouseClicked="#menuEntregar" onMouseEntered="#colorCambiar" prefHeight="69.0" prefWidth="283.0" style="-fx-background-color: #516FFF;">
                <children>
                   <Label layoutX="16.0" layoutY="14.0" prefHeight="41.0" prefWidth="251.0" text="ENTREGAR/RECIBIR RECURSO" textFill="WHITE">
                      <font>
@@ -200,7 +200,15 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="PaginaPrincipal" layoutX="36.0" layoutY="24.0" prefHeight="54.0" prefWidth="399.0" text="PAGINA PRINCIPAL" textFill="WHITE">
+            <Label fx:id="PaginaPrincipal" layoutX="36.0" layoutY="24.0" prefHeight="54.0" prefWidth="399.0" text="PAGINA PRINCIPAL" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="Roboto Medium Italic" size="45.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="lblpaginaReportes" layoutX="36.0" layoutY="24.0" prefHeight="54.0" prefWidth="458.0" text="GENERAR REPORTES" textFill="WHITE">
                <font>
                   <Font name="Roboto Medium Italic" size="45.0" />
                </font>
@@ -938,6 +946,42 @@
             <ImageView fx:id="imagedescarga" fitHeight="393.0" fitWidth="442.0" layoutX="795.0" layoutY="181.0" preserveRatio="true">
                <image>
                   <Image url="@../../../../../Pictures/Proyecto/descarga.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="generarReportes" layoutX="283.0" layoutY="224.0" prefHeight="639.0" prefWidth="1227.0" visible="false">
+         <children>
+            <Button fx:id="bttReporteusuario" layoutX="170.0" layoutY="516.0" mnemonicParsing="false" onAction="#reportarUsuario" prefHeight="41.0" prefWidth="166.0" style="-fx-background-color: #516FFF;" text="Reporte Usuarios" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Button>
+            <Button fx:id="bttReporterec" layoutX="866.0" layoutY="522.0" mnemonicParsing="false" onAction="#reporteRec" prefHeight="41.0" prefWidth="166.0" style="-fx-background-color: #516FFF;" text="Reporte Recursos" textFill="WHITE">
+               <font>
+                  <Font name="Roboto Medium" size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </Button>
+            <ImageView fx:id="imageReporteU" fitHeight="366.0" fitWidth="399.0" layoutX="96.0" layoutY="94.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Pictures/Proyecto/informe.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imageReporterec" fitHeight="339.0" fitWidth="319.0" layoutX="790.0" layoutY="118.0" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../Pictures/Proyecto/proesamiento.png" />
                </image>
             </ImageView>
          </children>
